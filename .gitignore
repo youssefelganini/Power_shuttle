@@ -220,14 +220,14 @@ __marimo__/
 *.env
 
 # Frontend / Vite / React
-frontend/node_modules/
-frontend/dist/
-frontend/build/
-frontend/.vite/
-frontend/.cache/
-frontend/npm-debug.log*
-frontend/yarn-debug.log*
-frontend/yarn-error.log*
-frontend/.DS_Store
-frontend/.env
-frontend/.env.*
+# frontend/node_modules/
+# frontend/dist/
+# frontend/build/
+# frontend/.vite/
+# frontend/.cache/
+# frontend/npm-debug.log*
+# frontend/yarn-debug.log*
+# frontend/yarn-error.log*
+# frontend/.DS_Store
+# frontend/.env
+# frontend/.env.*
