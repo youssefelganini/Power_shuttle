@@ -65,6 +65,12 @@
 
 .upload-input { display: none; }
 
+.service-error {
+  color: var(--danger);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
 .service-submit {
   width: 100%;
   padding: 16px 0;

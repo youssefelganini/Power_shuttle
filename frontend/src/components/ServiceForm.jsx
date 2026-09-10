@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Upload, Check, Loader2 } from 'lucide-react'
+import { submitServiceRecord } from '../api.js'
 import './ServiceForm.css'
 
 const SERVICE_TYPES = [
@@ -22,7 +23,7 @@ function UploadField({ label, required, file, onChange }) {
         {file ? (
           <>
             <Check size={18} className="pop" />
-            <span className="upload-field-name">{file}</span>
+            <span className="upload-field-name">{file.name}</span>
           </>
         ) : (
           <>
@@ -38,7 +39,7 @@ function UploadField({ label, required, file, onChange }) {
         className="upload-input"
         onChange={(e) => {
           const f = e.target.files && e.target.files[0]
-          onChange(f ? f.name : null)
+          onChange(f || null)
         }}
       />
     </div>
@@ -56,17 +57,33 @@ export default function ServiceForm({ onSubmitted }) {
   const [beforePhoto, setBeforePhoto] = useState(null)
   const [afterPhoto, setAfterPhoto] = useState(null)
   const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const needsPhotos = serviceType !== '' && serviceType !== 'routine'
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault()
     if (!vin.trim() || !invoicePhoto || submitting) return
+    setError('')
     setSubmitting(true)
-    setTimeout(() => {
+    try {
+      await submitServiceRecord({
+        vin: vin.trim(),
+        odometer,
+        serviceType,
+        cost,
+        insurance,
+        notes,
+        invoice: invoicePhoto,
+        before_photo: beforePhoto,
+        after_photo: afterPhoto,
+      })
+      onSubmitted(vin.trim())
+    } catch (err) {
+      setError('Could not submit this record. Please try again.')
+    } finally {
       setSubmitting(false)
-      onSubmitted(vin)
-    }, 1300)
+    }
   }
 
   return (
@@ -146,6 +163,8 @@ export default function ServiceForm({ onSubmitted }) {
         <UploadField label="Before Repair Photo" required={needsPhotos} file={beforePhoto} onChange={setBeforePhoto} />
         <UploadField label="After Repair Photo" required={needsPhotos} file={afterPhoto} onChange={setAfterPhoto} />
       </div>
+
+      {error && <p className="service-error">{error}</p>}
 
       <button
         type="submit"

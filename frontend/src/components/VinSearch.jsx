@@ -2,17 +2,12 @@ import React, { useState } from 'react'
 import { Loader2 } from 'lucide-react'
 import './VinSearch.css'
 
-export default function VinSearch({ onFound }) {
+export default function VinSearch({ onSearch, loading }) {
   const [vin, setVin] = useState('')
-  const [checking, setChecking] = useState(false)
 
   const check = () => {
-    if (!vin.trim() || checking) return
-    setChecking(true)
-    setTimeout(() => {
-      setChecking(false)
-      onFound(vin)
-    }, 1100)
+    if (!vin.trim() || loading) return
+    onSearch(vin.trim())
   }
 
   return (
@@ -27,12 +22,11 @@ export default function VinSearch({ onFound }) {
           placeholder="e.g. WBA3A5C50DF123456"
           maxLength={17}
         />
-        <button className="btn btn-primary vin-search-btn" onClick={check} disabled={checking || !vin.trim()}>
-          {checking && <Loader2 size={18} className="spin" />}
-          {checking ? 'Checking...' : 'Check This Car'}
+        <button className="btn btn-primary vin-search-btn" onClick={check} disabled={loading || !vin.trim()}>
+          {loading && <Loader2 size={18} className="spin" />}
+          {loading ? 'Checking...' : 'Check This Car'}
         </button>
       </div>
-      <p className="vin-search-hint">Tip: any VIN ending in an odd digit shows the high-risk demo record.</p>
     </div>
   )
 }

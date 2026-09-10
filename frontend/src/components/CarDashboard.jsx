@@ -1,18 +1,19 @@
 import React from 'react'
-import { ShieldCheck, ShieldAlert, RotateCcw } from 'lucide-react'
+import { RotateCcw } from 'lucide-react'
+import AIHero from './AIHero.jsx'
 import MileageGraph from './MileageGraph.jsx'
 import TimelineItem from './TimelineItem.jsx'
 import './CarDashboard.css'
 
 export default function CarDashboard({ car, onNewSearch }) {
-  const isSafe = car.aiVerdict === 'safe'
-
   return (
     <div className="dashboard fade-in">
       <button className="dashboard-back" onClick={onNewSearch}>
         <RotateCcw size={15} />
         Check another car
       </button>
+
+      <AIHero ai={car.ai} />
 
       <div className="dashboard-header">
         <h2 className="dashboard-model">{car.model}</h2>
@@ -33,16 +34,6 @@ export default function CarDashboard({ car, onNewSearch }) {
       </div>
 
       <div className="dashboard-overview">
-        <div className={'dashboard-verdict' + (isSafe ? ' dashboard-verdict--safe' : ' dashboard-verdict--risk')}>
-          {isSafe ? <ShieldCheck size={28} /> : <ShieldAlert size={28} />}
-          <span>{car.verdictText}</span>
-        </div>
-
-        <div className="dashboard-price">
-          <span className="dashboard-price-label">Estimated current price</span>
-          <span className="dashboard-price-value">EGP {car.estimatedPriceEGP.toLocaleString()}</span>
-        </div>
-
         <div className="dashboard-graph">
           <span className="dashboard-graph-label">Odometer over time</span>
           <MileageGraph data={car.mileageHistory} />
