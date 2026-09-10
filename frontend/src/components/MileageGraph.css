@@ -1,0 +1,60 @@
+.mileage-graph {
+  width: 100%;
+}
+
+.mileage-graph--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 148px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.mileage-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.mileage-baseline {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+
+.mileage-area {
+  fill: var(--accent);
+  fill-opacity: 0.12;
+  stroke: none;
+}
+
+.mileage-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.mileage-dot {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.mileage-hit {
+  fill: transparent;
+  cursor: pointer;
+}
+
+/* Values and dates wear text tokens, never the series colour. */
+.mileage-value-label {
+  fill: var(--text);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.mileage-axis-label {
+  fill: var(--muted);
+  font-size: 9.5px;
+}

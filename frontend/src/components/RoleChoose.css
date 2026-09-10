@@ -1,0 +1,14 @@
+.role-choose {
+  padding-top: 8px;
+}
+
+.role-choose-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+@media (max-width: 620px) {
+  .role-choose-grid { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,127 @@
+.service-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--steel);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  max-width: 640px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.service-grid--photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.35s ease;
+}
+
+.service-grid--photos.service-grid--photos-visible {
+  max-height: 400px;
+  opacity: 1;
+  margin-top: 4px;
+}
+
+.service-textarea {
+  min-height: 90px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.upload-field {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 18px 14px;
+  min-height: 48px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+  background: var(--surface-2);
+}
+
+.upload-field--filled {
+  border-color: var(--safe);
+  color: var(--text);
+}
+
+.upload-field-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.upload-input { display: none; }
+
+.service-error {
+  color: var(--danger);
+  font-size: 14px;
+  margin-top: 12px;
+}
+
+.service-submit {
+  width: 100%;
+  padding: 16px 0;
+  font-size: 17px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.service-success {
+  padding-top: 60px;
+  text-align: center;
+}
+
+.service-success-badge {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--steel);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.service-success-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+
+.service-success-sub {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.service-portal-title {
+  margin-bottom: 24px;
+  margin-top: 8px;
+}
+
+.service-success-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+@media (max-width: 560px) {
+  .service-grid, .service-grid--photos { grid-template-columns: 1fr; }
+}

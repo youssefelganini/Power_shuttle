@@ -1,0 +1,35 @@
+:root {
+  --bg: #EDEEEA;
+  --surface: #FFFFFF;
+  --surface-2: #F6F6F3;
+  --text: #16181A;
+  --muted: #5B5F5A;
+  --border: #D4D6D0;
+  --accent: #E8590C;
+  --accent-contrast: #FFFFFF;
+  --steel: #3F6B75;
+  --safe: #2F9E44;
+  --danger: #E03131;
+  --zone-highlight: #4C6EF5;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --font-heading: 'Oswald', sans-serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+}
+
+/* Cooler, richer dark theme: deep blue-charcoal base, glowing orange
+   accent, cyan-teal for the service-center identity. */
+[data-theme='dark'] {
+  --bg: #0E1013;
+  --surface: #181B20;
+  --surface-2: #20242B;
+  --text: #F1F3F5;
+  --muted: #9BA3AE;
+  --border: #2C313A;
+  --accent: #FF8A3D;
+  --accent-contrast: #0E1013;
+  --steel: #57B6C9;
+  --safe: #4ADE80;
+  --danger: #FF6B6B;
+  --zone-highlight: #6C8CFF;
+}
