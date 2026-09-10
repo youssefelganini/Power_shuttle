@@ -3,7 +3,7 @@ import { RotateCcw, Wrench } from 'lucide-react'
 import RoleSwitchPanel from './RoleSwitchPanel.jsx'
 import './Auth.css'
 
-export default function AuthBuyer({ goto, onLogin, initialMode }) {
+export default function AuthBuyer({ goto, enterRole, onLogin, initialMode }) {
   const [mode, setMode] = useState(initialMode === 'signup' ? 'signup' : 'signin')
   const [identifier, setIdentifier] = useState('')
   const [username, setUsername] = useState('')
@@ -129,7 +129,7 @@ export default function AuthBuyer({ goto, onLogin, initialMode }) {
           title="Meant to log a repair?"
           desc="If you run a service center and want to add a repair to the registry, head to the business account instead."
           buttonLabel="Switch to Service Center"
-          onClick={() => goto('service-auth')}
+          onClick={() => enterRole('service')}
         />
       </div>
     </div>

@@ -35,15 +35,18 @@ export default function TimelineItem({ record }) {
               <span className="timeline-detail-value">{record.components}</span>
             </div>
             <div className="timeline-detail-row">
-              <span className="timeline-detail-label">Price</span>
-              <span className="timeline-detail-value timeline-detail-value--price">
-                EGP {record.costEGP.toLocaleString()}
-              </span>
+              <span className="timeline-detail-label">Repaired items</span>
+              <span className="timeline-detail-value">{record.repairedItems}</span>
             </div>
 
             <div className="timeline-insight">
               <span className="timeline-insight-label">AI comments</span>
-              <p>{record.aiInsight}</p>
+              <p>
+                {record.aiInsight ||
+                  (record.aiPending
+                    ? 'AI assessment in progress…'
+                    : 'No AI assessment for this record.')}
+              </p>
             </div>
           </div>
         </div>

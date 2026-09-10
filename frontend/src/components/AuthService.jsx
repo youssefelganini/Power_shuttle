@@ -3,7 +3,7 @@ import { RotateCcw, Car } from 'lucide-react'
 import RoleSwitchPanel from './RoleSwitchPanel.jsx'
 import './Auth.css'
 
-export default function AuthService({ goto, onLogin, initialMode }) {
+export default function AuthService({ goto, enterRole, onLogin, initialMode }) {
   const [mode, setMode] = useState(initialMode === 'signin' ? 'signin' : 'signup')
   const [identifier, setIdentifier] = useState('')
   const [username, setUsername] = useState('')
@@ -151,7 +151,7 @@ export default function AuthService({ goto, onLogin, initialMode }) {
           title="Just checking a car?"
           desc="If you're buying a used car and want to see its history, the buyer account is the one you need."
           buttonLabel="Switch to Buyer"
-          onClick={() => goto('buyer-auth')}
+          onClick={() => enterRole('buyer')}
         />
       </div>
     </div>

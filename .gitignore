@@ -231,3 +231,11 @@ frontend/yarn-error.log*
 frontend/.DS_Store
 frontend/.env
 frontend/.env.*
+
+# Backend / Node / SQLite
+backend/node_modules/
+backend/uploads/
+backend/*.db
+backend/*.db-journal
+backend/*.db-wal
+backend/*.db-shm

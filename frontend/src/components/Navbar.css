@@ -74,7 +74,14 @@
   border: 1px solid var(--border);
   border-radius: 999px;
   background: var(--surface-2);
+  /* It's a <button> now (click -> back to your portal), so reset button chrome. */
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
 }
+
+.navbar-account:hover { border-color: var(--accent); }
 
 .navbar-avatar {
   width: 38px;

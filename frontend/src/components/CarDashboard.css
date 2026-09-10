@@ -64,3 +64,25 @@
   margin-bottom: 18px;
 }
 
+
+.dashboard-ai-pending {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.dashboard-ai-spin {
+  animation: dashboard-ai-spin 1s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes dashboard-ai-spin {
+  to { transform: rotate(360deg); }
+}

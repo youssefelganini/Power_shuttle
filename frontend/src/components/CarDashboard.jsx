@@ -1,5 +1,5 @@
 import React from 'react'
-import { RotateCcw } from 'lucide-react'
+import { RotateCcw, Loader2 } from 'lucide-react'
 import AIHero from './AIHero.jsx'
 import MileageGraph from './MileageGraph.jsx'
 import TimelineItem from './TimelineItem.jsx'
@@ -12,6 +12,13 @@ export default function CarDashboard({ car, onNewSearch }) {
         <RotateCcw size={15} />
         Check another car
       </button>
+
+      {car.aiPending && (
+        <div className="dashboard-ai-pending">
+          <Loader2 size={14} className="dashboard-ai-spin" />
+          AI is still reading the invoice and damage photos — this page refreshes itself.
+        </div>
+      )}
 
       <AIHero ai={car.ai} />
 

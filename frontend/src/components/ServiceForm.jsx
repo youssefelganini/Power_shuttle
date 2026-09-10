@@ -50,7 +50,6 @@ export default function ServiceForm({ onSubmitted }) {
   const [vin, setVin] = useState('')
   const [odometer, setOdometer] = useState('')
   const [serviceType, setServiceType] = useState('')
-  const [cost, setCost] = useState('')
   const [insurance, setInsurance] = useState('no')
   const [notes, setNotes] = useState('')
   const [invoicePhoto, setInvoicePhoto] = useState(null)
@@ -71,7 +70,6 @@ export default function ServiceForm({ onSubmitted }) {
         vin: vin.trim(),
         odometer,
         serviceType,
-        cost,
         insurance,
         notes,
         invoice: invoicePhoto,
@@ -114,21 +112,6 @@ export default function ServiceForm({ onSubmitted }) {
           />
         </div>
         <div className="field">
-          <label>Repair cost (EGP) <span className="required">*</span></label>
-          <input
-            className="input"
-            type="number"
-            min="0"
-            value={cost}
-            onChange={(e) => setCost(e.target.value)}
-            placeholder="0"
-            required
-          />
-        </div>
-      </div>
-
-      <div className="service-grid">
-        <div className="field">
           <label>Service type <span className="required">*</span></label>
           <select className="input" value={serviceType} onChange={(e) => setServiceType(e.target.value)} required>
             {SERVICE_TYPES.map((s) => (
@@ -136,6 +119,9 @@ export default function ServiceForm({ onSubmitted }) {
             ))}
           </select>
         </div>
+      </div>
+
+      <div className="service-grid">
         <div className="field">
           <label>Insurance claim linked?</label>
           <select className="input" value={insurance} onChange={(e) => setInsurance(e.target.value)}>

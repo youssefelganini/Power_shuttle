@@ -9,7 +9,7 @@ const STEPS = [
   { icon: <ShieldCheck size={20} />, text: 'You get a plain-language verdict before you pay' },
 ]
 
-export default function Landing({ goto }) {
+export default function Landing({ goto, enterRole }) {
   return (
     <div className="fade-in">
       <section className="hero">
@@ -41,14 +41,14 @@ export default function Landing({ goto }) {
             icon={<Car size={26} strokeWidth={2.2} />}
             title="I'm Buying a Car"
             desc="Check a car's history before you buy"
-            onClick={() => goto('buyer-auth')}
+            onClick={() => enterRole('buyer')}
           />
           <RoleCard
             variant="service"
             icon={<Wrench size={26} strokeWidth={2.2} />}
             title="I'm a Service Center"
             desc="Log a repair for the registry"
-            onClick={() => goto('service-auth')}
+            onClick={() => enterRole('service')}
           />
         </div>
       </section>

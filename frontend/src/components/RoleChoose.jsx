@@ -4,7 +4,7 @@ import RoleCard from './RoleCard.jsx'
 import './Auth.css'
 import './RoleChoose.css'
 
-export default function RoleChoose({ goto, intent }) {
+export default function RoleChoose({ goto, enterRole, intent }) {
   const heading = intent === 'signup' ? 'Create an account as...' : 'Sign in as...'
 
   return (
@@ -23,14 +23,14 @@ export default function RoleChoose({ goto, intent }) {
           icon={<Car size={26} strokeWidth={2.2} />}
           title="I'm a Buyer"
           desc="Check a car's history before you buy"
-          onClick={() => goto('buyer-auth')}
+          onClick={() => enterRole('buyer')}
         />
         <RoleCard
           variant="service"
           icon={<Wrench size={26} strokeWidth={2.2} />}
           title="I'm a Service Center"
           desc="Log a repair for the registry"
-          onClick={() => goto('service-auth')}
+          onClick={() => enterRole('service')}
         />
       </div>
     </div>
