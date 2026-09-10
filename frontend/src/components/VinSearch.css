@@ -1,0 +1,25 @@
+.vin-search { padding-top: 24px; }
+
+.vin-search-title { font-size: 28px; font-weight: 700; margin-bottom: 20px; }
+
+.vin-search-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.vin-search-input { flex: 1 1 260px; font-size: 18px; letter-spacing: 0.03em; }
+
+.vin-search-btn {
+  min-height: 52px;
+  padding: 0 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vin-search-hint {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+}

@@ -1,0 +1,152 @@
+.auth-page {
+  padding-top: 8px;
+}
+
+.auth-back {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 15px;
+  padding: 10px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.auth-back:hover { color: var(--text); }
+
+.auth-title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.auth-sub {
+  color: var(--muted);
+  margin-top: 6px;
+  margin-bottom: 24px;
+}
+
+/* Two-column layout: form on the left, "wrong role?" switch panel on the right */
+.auth-layout {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .auth-layout { grid-template-columns: 1fr; }
+}
+
+.auth-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+}
+.auth-card--service { border-left: 6px solid var(--steel); }
+.auth-card--buyer { border-left: 6px solid var(--accent); }
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+}
+.auth-divider-line { flex: 1; height: 1px; background: var(--border); }
+.auth-divider-text { font-size: 13px; color: var(--muted); }
+
+.auth-google-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 0;
+}
+
+.auth-google-badge {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.auth-tab {
+  flex: 1;
+  padding: 10px 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.auth-tab--active {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+}
+
+.auth-submit { width: 100%; padding: 15px 0; font-size: 17px; margin-top: 6px; }
+
+.auth-hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: -12px;
+  margin-bottom: 18px;
+}
+
+/* Role switch panel */
+.role-switch {
+  background: var(--surface-2);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.role-switch-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--steel);
+  margin-bottom: 4px;
+}
+.role-switch--buyer .role-switch-icon { color: var(--accent); }
+
+.role-switch-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.role-switch-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.role-switch-btn { margin-top: 8px; }

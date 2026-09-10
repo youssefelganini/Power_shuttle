@@ -1,0 +1,37 @@
+.mileage-graph {
+  width: 100%;
+}
+
+.mileage-svg {
+  width: 100%;
+  height: auto;
+}
+
+.mileage-area {
+  fill: var(--accent);
+  fill-opacity: 0.12;
+  stroke: none;
+}
+
+.mileage-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.mileage-dot {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.mileage-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  padding: 0 4px;
+}

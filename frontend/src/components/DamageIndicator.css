@@ -1,0 +1,77 @@
+.damage-indicator {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.dd-outer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.dd-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.dd-middle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dd-label--left,
+.dd-label--right {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+.dd-label--left { transform: rotate(180deg); }
+
+.dd-frame {
+  width: 220px;
+  aspect-ratio: 4 / 5;
+  border: 2px solid var(--border);
+  border-radius: 26px;
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, border-width 0.2s ease;
+}
+
+.dd-frame--front { border-top-color: var(--zone-highlight); border-top-width: 8px; }
+.dd-frame--rear { border-bottom-color: var(--zone-highlight); border-bottom-width: 8px; }
+.dd-frame--left { border-left-color: var(--zone-highlight); border-left-width: 8px; }
+.dd-frame--right { border-right-color: var(--zone-highlight); border-right-width: 8px; }
+
+.dd-car { width: 46%; height: auto; }
+.dd-car-body { fill: var(--surface); stroke: var(--muted); stroke-width: 1.5; }
+.dd-car-glass { fill: var(--border); }
+.dd-car-mirror { fill: var(--muted); }
+
+.dd-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.dd-pill {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 7px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--zone-highlight);
+  white-space: nowrap;
+}
+
+.dd-pill--clean {
+  color: var(--safe);
+}
