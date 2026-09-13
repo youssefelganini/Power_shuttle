@@ -1,8 +1,6 @@
 <div align="center">
 
-# 🚗 Power Shuttle
-
-### AI-powered vehicle history & transparency registry for the Egyptian used-car market
+<img src="assets/banner.png" alt="Power Shuttle — AI-powered used-car transparency for the Egyptian market" width="100%" />
 
 *Punch in a VIN. Get the truth about the car — mileage history, repair timeline, and an unbiased AI appraisal that protects buyers from fraud.*
 
@@ -23,12 +21,15 @@ The clip below walks through the two sides of the platform: a **service center**
 
 ### Resources used in the demo
 
-| Car before maintenance | Car after maintenance | Repair invoice |
-|:---:|:---:|:---:|
-| ![Car before maintenance](assets/demo/car-before-maintenance.webp) | ![Car after maintenance](assets/demo/car-after-maintenance.webp) | ![Repair invoice](assets/demo/repair-invoice.png) |
-| Front-end collision damage as logged by the service center | Same vehicle after the repair was completed | The invoice the AI vision model reads to extract repaired items, cost, and date |
+<p align="center">
+  <img src="assets/demo/before-after.png" alt="Car before and after maintenance" width="100%" />
+</p>
 
-These three files are exactly what gets uploaded through the **Service Center** portal for a single repair record — the backend feeds them straight to the AI model, which turns them into the structured timeline entry and damage diagram a buyer sees on the other end.
+<p align="center">
+  <img src="assets/demo/invoice-card.png" alt="Repair invoice used by the AI" width="60%" />
+</p>
+
+These are exactly the files that get uploaded through the **Service Center** portal for a single repair record — the backend feeds them straight to the AI model, which turns them into the structured timeline entry and damage diagram a buyer sees on the other end.
 
 ---
 
