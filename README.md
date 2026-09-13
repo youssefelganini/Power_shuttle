@@ -21,13 +21,13 @@ The clip below walks through the two sides of the platform: a **service center**
 
 ### Resources used in the demo
 
-<p align="center">
-  <img src="assets/demo/before-after.png" alt="Car before and after maintenance" width="100%" />
-</p>
-
-<p align="center">
-  <img src="assets/demo/invoice-card.png" alt="Repair invoice used by the AI" width="60%" />
-</p>
+<table align="center">
+<tr>
+<td align="center"><img src="assets/demo/before.png" width="260" alt="Car before maintenance" /></td>
+<td align="center"><img src="assets/demo/after.png" width="260" alt="Car after maintenance" /></td>
+<td align="center"><img src="assets/demo/invoice.png" width="260" alt="Repair invoice" /></td>
+</tr>
+</table>
 
 These are exactly the files that get uploaded through the **Service Center** portal for a single repair record — the backend feeds them straight to the AI model, which turns them into the structured timeline entry and damage diagram a buyer sees on the other end.
 
@@ -43,28 +43,24 @@ These are exactly the files that get uploaded through the **Service Center** por
 ## 🏗️ Architecture
 
 ```mermaid
-flowchart LR
-    subgraph Client["Frontend — React + Vite"]
-        Buyer["Buyer Portal\nVIN search · timeline · mileage graph"]
-        Service["Service Portal\nrepair intake form · uploads"]
-    end
+flowchart TD
+    Service["Service Portal\nrepair intake + uploads"]
+    Buyer["Buyer Portal\nVIN search · timeline · graph"]
+    API["/api/v1 routes\n(Express)"]
+    DB[("SQLite")]
+    Files[("Uploaded photos\n& invoices")]
+    AI["AI Vision Model\nqwen3-vl-32b-instruct"]
 
-    subgraph Server["Backend — Node.js + Express"]
-        API["/api/v1 routes"]
-        DB[("SQLite\nbetter-sqlite3")]
-        Uploads[("Uploaded photos\n& invoices")]
-    end
-
-    AI["AI Vision Model\n(qwen3-vl-32b-instruct)\n'Egyptian appraiser' persona"]
-
-    Service -- "POST /service-records\n(photos + form data)" --> API
-    API -- "store record" --> DB
-    API -- "save files" --> Uploads
-    API -- "analyze before/after/invoice" --> AI
-    AI -- "structured verdict\n(items, cost, damage zones, value)" --> API
-    Buyer -- "GET /vehicles/:vin/history" --> API
-    API -- "history + AI verdict" --> Buyer
+    Service -->|"POST /service-records"| API
+    API --> DB
+    API --> Files
+    API -->|"send photos + invoice"| AI
+    AI -->|"verdict JSON"| API
+    Buyer -->|"GET /vehicles/:vin/history"| API
+    API -->|"history + verdict"| Buyer
 ```
+
+*The AI's "Egyptian appraiser" persona lives in the backend's system prompt — it reads the before/after photos and the invoice together, then returns structured JSON (repaired items, cost, damage zones, estimated value).*
 
 **Frontend** — React (functional components + hooks), plain CSS per component (no Tailwind/CSS-in-JS), served by Vite, deployed on Vercel.
 **Backend** — Express REST API, SQLite via `better-sqlite3` for storage, `multer` for photo/invoice uploads, `sharp` for image processing.
