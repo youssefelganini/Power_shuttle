@@ -117,11 +117,6 @@ Power_shuttle/
         └── App.jsx
 ```
 
-## 🗺️ Roadmap
-
-- [ ] Persistent auth for buyers and service centers
-- [ ] Public API rate limiting
-- [ ] Multi-language support (Arabic / English)
 
 ## 📄 License
 
@@ -129,4 +124,4 @@ MIT — see [LICENSE](./LICENSE).
 
 ## 👤 Author
 
-Built by **Youssef Elganini** as a 24-hour hackathon project.
+Built by **Youssef Elganini | Belal Ahmed | Abdullah Elsherbiny ** as a 24-hour hackathon project.
