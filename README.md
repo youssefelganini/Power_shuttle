@@ -124,4 +124,4 @@ MIT — see [LICENSE](./LICENSE).
 
 ## 👤 Author
 
-Built by **Youssef Elganini | Belal Ahmed | Abdullah Elsherbiny ** as a 24-hour hackathon project.
+Built by Youssef Elganini | Belal Ahmed | Abdullah Elsherbiny  as a 24-hour hackathon project.
